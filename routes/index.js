@@ -16,4 +16,8 @@ router.post('/newnote', function(req, res){
             return standUpCtrl.create(req, res);
 });
 
+router.get('/find/:name', function(req, res){
+            return standUpCtrl.find(req, res);
+})
+
 module.exports = router;
