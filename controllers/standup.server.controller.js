@@ -11,7 +11,14 @@ module.exports.create = function(req, res){
         impediment: req.body.impediment
     });
     
-    entry.save();
+    entry.save(function(err){    
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+            console.log('Person saved');
+    });
     
     //redirect
     
