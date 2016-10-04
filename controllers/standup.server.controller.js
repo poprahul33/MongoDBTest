@@ -14,15 +14,19 @@ module.exports.create = function(req, res){
     entry.save(function(err){    
         if(err)
         {
-            console.log(err);
+            var errmsg = 'We got the error: ' + err;
+            res.render('newnote', {Title: 'New note', message: errmsg});
         }
-        else
-            console.log('Person saved');
+        else{
+            console.log('Log saved on MongoDB!');
+            //redirect
+    
+            res.redirect(301, '/');
+        }
+            
     });
     
-    //redirect
     
-    res.redirect(301, '/');
 };
 
 exports.list = function(req, res){
